@@ -1,6 +1,6 @@
 ﻿using CadastroClientes.Models;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 namespace CadastroClientes.Controllers
@@ -13,7 +13,7 @@ namespace CadastroClientes.Controllers
         }
 
         
-        public ActionResult SelecionarTodos()
+        public JsonResult SelecionarTodos()
         {
             List<Cliente> lista = new List<Cliente>();
             lista = Cliente.Selecionar();
@@ -21,33 +21,83 @@ namespace CadastroClientes.Controllers
             {
                 data = lista
             };
-            return new JsonResult(result); 
+            return Json(result); 
         }
 
-        public void InserirAtualizarCliente(Cliente cliente)
+        public JsonResult InserirAtualizarCliente(Cliente cliente)
         {
-           // Cliente cliente = new Cliente("nome", "sexo", DateTime.Now, "s", "10", "20", null);          
-            if(cliente.Id != default(int))
+            // Cliente cliente = new Cliente("nome", "sexo", DateTime.Now, "s", "10", "20", null);
+            
+            if (cliente.Id != default(int))
             {
-                Cliente.InserirCliente(cliente);
+                try
+                {
+                    Cliente.InserirCliente(cliente);
+                    var result = new
+                    {
+                        success = true
+                    };
+                    return Json(result);
+                }
+                catch(Exception e)
+                {
+                    var result = new
+                    {
+                        success = false
+                    };
+                    return Json(result);
+                }
+                
+            }
+            else{
+                
+                try
+                {
+                    Cliente.AtualizarCliente(cliente);
+                    var result = new
+                    {
+                        success = true
+                    };
+                    return Json(result);
+                }
+                catch (Exception e)
+                {
+                    var result = new
+                    {
+                        success = false
+                    };
+                    return Json(result);
+                }
             }
 
-            else
-            {
-                Cliente.AtualizarCliente(cliente);
-            }
+            
         }
 
-        public ActionResult SelecionarPorID(int id)
+        public JsonResult SelecionarPorID(int id)
         {
             Cliente cliente = new Cliente();
             cliente = Cliente.SelecionarId(id);
             return Json(cliente);
         }
 
-        public void ExcluirCliente(int id)
+        public JsonResult ExcluirCliente(int id)
         {
-            Cliente.ExcluirCliente(id);
+            try{
+                Cliente.ExcluirCliente(id);
+                var result = new
+                {
+                    success = true
+                };
+                return Json(result);
+            }
+            catch (Exception e){
+
+                var result = new
+                {
+                    success = false
+                };
+                return Json(result);
+            }
         }
     }
 }

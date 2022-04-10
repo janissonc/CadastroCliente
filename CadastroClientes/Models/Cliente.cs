@@ -33,8 +33,7 @@ namespace CadastroClientes.Models
 
         public static void InserirCliente(Cliente cliente)
         {
-            SqlConnection connection = new SqlConnection("Server=Guilherme\\SQLEXPRESS02;Database=Cliente;User ID = sa; Password=Gui156061;" +
-    "Trusted_Connection=False; MultipleActiveResultSets=true");
+            SqlConnection connection = new SqlConnection("Server=DESKTOP-SM0KMME\\SQLEXPRESS;Database=Cliente;User ID = sa; Password=janisson123; Trusted_Connection=False; MultipleActiveResultSets=true");
             if (connection.State == ConnectionState.Closed)  //System.Data.ConnectionState.Closed
             {
                 connection.Open();
@@ -60,8 +59,7 @@ namespace CadastroClientes.Models
         }
         public static List<Cliente> Selecionar()
         {
-            SqlConnection connection = new SqlConnection("Server=Guilherme\\SQLEXPRESS02;Database=Cliente;User ID = sa; Password=Gui156061;" +
-    "Trusted_Connection=False; MultipleActiveResultSets=true");
+            SqlConnection connection = new SqlConnection("Server=DESKTOP-SM0KMME\\SQLEXPRESS;Database=Cliente;User ID = sa; Password=janisson123; Trusted_Connection=False; MultipleActiveResultSets=true");
             if (connection.State == ConnectionState.Closed)  //System.Data.ConnectionState.Closed
             {
                 connection.Open();
@@ -97,8 +95,7 @@ namespace CadastroClientes.Models
 
         public static Cliente SelecionarId(int id)
         {
-            SqlConnection connection = new SqlConnection("Server=Guilherme\\SQLEXPRESS02;Database=Cliente;User ID = sa; Password=Gui156061;" +
-    "Trusted_Connection=False; MultipleActiveResultSets=true");
+            SqlConnection connection = new SqlConnection("Server=DESKTOP-SM0KMME\\SQLEXPRESS;Database=Cliente;User ID = sa; Password=janisson123; Trusted_Connection=False; MultipleActiveResultSets=true");
             if (connection.State == ConnectionState.Closed)  //System.Data.ConnectionState.Closed
             {
                 connection.Open();
@@ -131,8 +128,7 @@ namespace CadastroClientes.Models
 
         public static void AtualizarCliente(Cliente cliente)
         {
-            SqlConnection connection = new SqlConnection("Server=Guilherme\\SQLEXPRESS02;Database=Cliente;User ID = sa; Password=Gui156061;" +
-    "Trusted_Connection=False; MultipleActiveResultSets=true");
+            SqlConnection connection = new SqlConnection("Server=DESKTOP-SM0KMME\\SQLEXPRESS;Database=Cliente;User ID = sa; Password=janisson123; Trusted_Connection=False; MultipleActiveResultSets=true");
             if (connection.State == ConnectionState.Closed)  //System.Data.ConnectionState.Closed
             {
                 connection.Open();
@@ -160,8 +156,7 @@ namespace CadastroClientes.Models
 
         public static void ExcluirCliente(int id)
         {
-            SqlConnection connection = new SqlConnection("Server=Guilherme\\SQLEXPRESS02;Database=Cliente;User ID = sa; Password=Gui156061;" +
-    "Trusted_Connection=False; MultipleActiveResultSets=true");
+            SqlConnection connection = new SqlConnection("Server=DESKTOP-SM0KMME\\SQLEXPRESS;Database=Cliente;User ID = sa; Password=janisson123; Trusted_Connection=False; MultipleActiveResultSets=true");
             if (connection.State == ConnectionState.Closed)  //System.Data.ConnectionState.Closed
             {
                 connection.Open();

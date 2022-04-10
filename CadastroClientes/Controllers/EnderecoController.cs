@@ -11,7 +11,7 @@ namespace CadastroClientes.Controllers
             return View();
         }
 
-        public ActionResult SelecionarTodos()
+        public JsonResult SelecionarTodos()
         {
             List<Endereco> lista = new List<Endereco>();
             lista = Endereco.Selecionar();
@@ -32,7 +32,7 @@ namespace CadastroClientes.Controllers
             }
         }
 
-        public ActionResult SelecionarPorID(int id)
+        public JsonResult SelecionarPorID(int id)
         {
             Endereco endereco = new Endereco();
             endereco = Endereco.SelecionarId(id);
